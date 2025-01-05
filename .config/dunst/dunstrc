@@ -1,0 +1,15 @@
+[global]
+    monitor = 1 
+    font = JetBrainsMono
+    frame_color = "#800000"
+    background = "#101010"
+    transparency = 85
+    ### GEOMETRY ###
+    width = 300 
+    height = (0,300)
+    origin = top-right
+    [mpd_notifications]
+        new_icon = /tmp/current_song.jpg
+        desktop_entry = mpdris2
+        #skip_display = true
+        script = ~/.config/dunst/mpd_stats

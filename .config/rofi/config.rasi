@@ -1,0 +1,34 @@
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}
+
+@theme "arthur"
+ 
+entry {
+    placeholder: "Type here";
+    cursor: pointer;
+    cursor-color : rgb (220,20,60);
+    cursor-width: 8px;
+}
+
+
+element {
+  orientation: horizontal;
+  children: [ element-text, element-icon ];
+  spacing: 5px;
+  background-color : #4f0002;
+  font : "MxPlus IBM VGA 9x16";
+}
+
+element-icon {
+    size: 2em;
+    background-color: #800000;
+}
+
+entry, element-text {
+    text-color : white;
+    background-color: #800000;
+
+}
+

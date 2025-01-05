@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# get current song and store file location into variable
+current_file=$(mpc current --format "%file%")
+song="/home/boggle/music/$current_file"
+album=$(mpc current --format "%album%")
+#echo "$current_file"
+#echo "$song"
+if [[ -f "$song" ]]; then
+    echo "$song exists."
+else
+    echo "$song DNE."
+    exit -1
+fi
+
+# FFMPEG used to pull COVERART 
+COVERART="/tmp/current_song.jpg"
+echo "y" | ffmpeg -i "$song" -map 0:1 "$COVERART"

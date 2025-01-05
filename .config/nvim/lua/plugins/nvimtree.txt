@@ -1,0 +1,42 @@
+return {
+  'nvim-tree/nvim-tree.lua',
+  config = function()
+    local nvim_tree = require 'nvim-tree'
+    nvim_tree.setup {
+      sort = {
+        sorter = 'case_sensitive',
+      },
+      view = {
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+        icons = {
+          -- Default icons
+          default = '', -- Custom icon for regular files
+          symlink = '', -- Custom icon for symlinks
+          git = {
+            -- Git icons
+            unstaged = '✗',
+            staged = '✓',
+            untracked = '?',
+            renamed = '➜',
+            deleted = '',
+            ignored = '◌',
+          },
+          folder = {
+            -- Folder icons
+            default = '', -- Custom icon for folders
+            open = '', -- Custom icon for open folders
+            empty = '', -- Custom icon for empty folders
+            empty_open = '', -- Custom icon for empty open folders
+            symlink = '', -- Custom icon for folder symlinks
+          },
+        },
+      },
+      filters = {
+        dotfiles = true,
+      },
+    }
+  end,
+}
