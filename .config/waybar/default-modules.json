@@ -1,0 +1,177 @@
+{
+    "pulseaudio": {
+        "format": "{icon}:{volume}%",
+        "format-bluetooth": "{icon}:{volume}%",
+    	"format-muted": ":{volume}%",
+        "format-icons": {
+          "headphones": "",
+          "headset": "",
+          "default": ["", " "]
+        },
+        "on-click": "pwvucontrol"
+    },
+    "tray":{
+        "icon-size": 18,
+        "spacing": 5
+    },
+    "custom/media": {
+         "format": "{icon} {0}",
+         "return-type": "json",
+         "max-length": 40,
+         "format-icons": {
+             "spotify": ""
+        },
+        "smooth-scrolling-threshold": 5, // This value was tested using a trackpad, it should be lowered if using a mouse.
+        "escape": true,
+
+        "exec": "$HOME/.config/waybar/custom_modules/mediaplayer.py 2> /dev/null",
+        "exec-if": "pgrep spotify",
+
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "network":{
+        "format-wifi": " ",
+        "format-ethernet": "",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format-wifi": "{essid}: {signalStrength}%",
+        "tooltip-format-ethernet": "{ipaddr} / {cidr}",
+        "on-click": "alacritty -e nmtui"
+    },
+    "bluetooth": {
+	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    	"format": "",
+        "interval": 1,
+    	"format-disabled": "", // an empty format will hide the module
+    	"format-connected": " {num_connections} connected",
+    	"tooltip-format": "{controller_alias} {controller_address}",
+    	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "alacritty -e bluetui"
+    },
+    "clock": {
+	"format": "{:%I:%M %p}",
+        "tooltip": "true",
+        "tooltip-format": "{:%m-%d-%Y}",
+        "timezone": "America/New_York",
+        "format-alt": "{:%a.%b %d | %I:%M %p}"
+    },
+    "custom/power": {
+         "format" : "⏻",
+         "tooltip": false,
+         "menu": "on-click",
+         "menu-file": "$HOME/.config/waybar/custom_modules/power_menu.xml", 
+         "menu-actions": {
+         "shutdown": "shutdown now",
+         "reboot": "reboot",
+         "suspend": "systemctl suspend",
+         "hibernate": "systemctl hibernate" }
+    },
+    "cpu":{
+	"interval": 1,
+	"format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5} {usage:>2}% ",
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+	"tooltip-format": "{{avg_frequency}}" 
+    },
+    "memory":{
+	"interval": 30,
+	"format": "{}% ",
+	"max-length": 10 
+    },
+    "temperature":{
+	"critical-threshold": 80,
+	"format-critical": "{temperatureC}°C ",
+	"format": "{temperatureC}°C ",
+	"tooltip": false
+    },
+    "mpd":{
+	"format": "{stateIcon} {artist} - {album} - {title}",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped",
+        "interval": 10,
+        "consume-icons": {
+        "on": " " // Icon shows only when "consume" is on
+    },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
+            "on": " "
+    },
+        "repeat-icons": {
+            "on": " "
+    },
+        "single-icons": {
+            "on": "1 "
+    },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+    },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "playerctl --player=mpd play-pause"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },    
+        "format": "{icon} {capacity}%",
+        "format-full":"{icon} {capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Profile: {profile}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
+    "cava": {
+        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+        "framerate": 30,
+        "autosens": 1,
+        "sensitivity": 100,
+        "bars": 14,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "bar_delimiter": 0,
+        "monstercat": false,
+        "waves": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+        "actions": {
+                   "on-click-right": "mode"
+                   }
+    }
+   /* "hyprland/workspaces": {
+	"format": "{name}|{windows}",
+	"format-window-separator": " ",
+	"window-rewrite-default": "",
+	"window-rewrite": {
+		"title<.*youtube.*>": "", // Windows whose titles contain "youtube"
+        "title<.*discord.*>": "",
+        "title<.*dolphin.*>" : "",
+        "title<.*steam.*>" :  "",
+        "title<.*spotify.*>" :"",
+        "title<.*audacity.*>" : "",
+		"class<firefox>": "", // Windows whose classes are "firefox"
+		"class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+		"class<firefox> title<.*Zbolt50/.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+        "class<firefox> title<.*canvas.*>": "",
+        "class<alacritty> title<.*.*>": ""
+	} 
+}*/
+}
+}

@@ -1,0 +1,42 @@
+// -*- mode: jsonc -*-
+[{
+    "layer": "top", // Waybar at top layer
+    "output": ["DP-1"], //"HDMI-A-1"
+    "height": 36, 
+    "spacing": 4, // Gaps between modules (4px)
+    "include": [
+	"~/.config/waybar/default-modules.json",
+    ],
+    "modules-left": [
+        "hyprland/workspaces",
+    	"tray"
+    ],
+    "modules-center": [
+        "cava"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "network",
+	    "bluetooth",
+        "power-profiles-daemon",
+        "battery",
+        "clock",
+        "custom/power"
+    ],
+    
+}, {
+    "layer": "top", 
+    "output": ["HDMI-A-1"],
+     "include": [
+	"~/.config/waybar/default-modules.json",
+    ],
+    "modules-left":
+    [
+	    "hyprland/workspaces"
+    ],
+    "modules-center": [
+	    "cpu",
+	    "memory",
+	    "temperature"
+    ]
+}]
