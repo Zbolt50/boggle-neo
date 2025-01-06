@@ -75,6 +75,7 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-interactive-cd
+    #keychain
     # Make sure this stays as the last plugin \/
     zsh-syntax-highlighting
 )
@@ -82,7 +83,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
+zstyle :omz:plugins:keychain options --quiet
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
