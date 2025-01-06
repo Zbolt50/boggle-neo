@@ -29,7 +29,10 @@ return {
 			vim.notify = require("notify")
 		end,
 	},
-
+	{
+		--tmuxline.vim | makes tmux bar match vim-airline
+		"edkolev/tmuxline.vim",
+	},
 	{
 		-- snacks.nvim
 		"folke/snacks.nvim",
