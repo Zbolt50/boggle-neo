@@ -15,6 +15,7 @@ return {
 			vim.cmd("let g:airline_theme='blood_red'")
 			vim.cmd("let g:airline_left_sep = ''")
 			vim.cmd("let g:airline#extensions#lsp#enabled = 1")
+			vim.cmd("let g:airline#extensions#tmuxline#enabled = 0")
 		end,
 	},
 	{
@@ -32,6 +33,7 @@ return {
 	{
 		--tmuxline.vim | makes tmux bar match vim-airline
 		"edkolev/tmuxline.vim",
+		config = function() end,
 	},
 	{
 		-- snacks.nvim

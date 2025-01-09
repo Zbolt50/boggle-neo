@@ -3,10 +3,7 @@
 decorations = "Buttonless"
 opacity = 0.75
 blur = true
-
-  [window.padding]
-  x = 10
-  y = 10
+dynamic_padding = true
 
 [general]
 import = [ "~/.config/alacritty/themes/siva.toml" ]
