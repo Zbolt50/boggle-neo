@@ -10,7 +10,6 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local keymap = vim.keymap
 			local opts = { noremap = true, silent = true }
 			local on_attach = function(client, bufnr)
 				opts.buffer = bufnr
@@ -32,6 +31,11 @@ return {
 			})
 			-- C langs server
 			lspconfig.clangd.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			-- pyright server
+			lspconfig.pyright.setup({
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
@@ -57,8 +61,6 @@ return {
 			})
 			masonlspconfig.setup({
 				ensure_installed = {
-					"html",
-					"cssls",
 					"lua_ls",
 					"pyright",
 					"bashls",

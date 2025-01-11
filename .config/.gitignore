@@ -1,4 +1,5 @@
 # gitignore
-
+mpd/database
 .log
 .gpg
+nvim/lazy-lock.json

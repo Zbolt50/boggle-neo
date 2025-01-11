@@ -29,3 +29,4 @@ keymap.set('n', '<C-l>', '<C-w>l')
 -- Insert empty line without entering insert mode
 keymap.set('n', '<leader>o', ':<C-u>call append(line("."), repeat([""], v:count1))<CR>', defaults)
 keymap.set('n', '<leader>O', ':<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>', defaults)
+
