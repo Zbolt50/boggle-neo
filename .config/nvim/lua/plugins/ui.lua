@@ -14,6 +14,7 @@ return {
 			vim.cmd("let g:netrw_liststyle = 3")
 			vim.cmd("let g:airline_theme='blood_red'")
 			vim.cmd("let g:airline_left_sep = ''")
+			vim.cmd("let g:airline_right_sep= ''")
 			vim.cmd("let g:airline#extensions#lsp#enabled = 1")
 			vim.cmd("let g:airline#extensions#tmuxline#enabled = 0")
 		end,
