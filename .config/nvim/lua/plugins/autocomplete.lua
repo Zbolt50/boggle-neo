@@ -42,6 +42,7 @@ return {
 				{ name = "luasnip" }, -- For luasnip users.
 				{ name = "buffer" },
 				{ name = "path" },
+				{ name = "render-markdown" },
 			}),
 		})
 	end,

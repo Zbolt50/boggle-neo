@@ -1,17 +1,17 @@
 -- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-      { out, 'WarningMsg' },
-      { '\nPress any key to exit...' },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		vim.api.nvim_echo({
+			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+			{ out, "WarningMsg" },
+			{ "\nPress any key to exit..." },
+		}, true, {})
+		vim.fn.getchar()
+		os.exit(1)
+	end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -20,8 +20,8 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 -- VIM Options
 
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.mouse = 'a'
+vim.opt.clipboard = "unnamedplus"
+vim.opt.mouse = "a"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -52,22 +52,24 @@ vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entere
 
 -- Highlighting and Colors
 vim.opt.termguicolors = true
-vim.cmd 'syntax enable'
-vim.cmd 'filetype plugin indent on'
-
+vim.cmd("syntax enable")
+vim.cmd("filetype plugin indent on")
+vim.opt.conceallevel = 1
 -- Setup lazy.nvim
-require('lazy').setup {
-  spec = {
-    -- import your plugins
-    { import = 'plugins' },
-  },
-  -- Configure any other settings here. See the documentation for more details.
-  -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { 'siva' } },
-  -- automatically check for plugin updates
-  checker = { enabled = true },
-}
+require("lazy").setup({
+	spec = {
+		-- import your plugins
+		{ import = "plugins" },
+	},
+	-- Configure any other settings here. See the documentation for more details.
+	-- colorscheme that will be used when installing plugins.
+	install = { colorscheme = { "siva" } },
+	-- automatically check for plugin updates
+	checker = { enabled = true },
+})
 -- Disable Mouse Popup
-vim.cmd 'autocmd VimEnter * silent! aunmenu PopUp.How-to\\ disable\\ mouse'
-vim.cmd 'aunmenu PopUp.-1-'
-vim.cmd 'colorscheme siva'
+vim.cmd("autocmd VimEnter * silent! aunmenu PopUp.How-to\\ disable\\ mouse")
+vim.cmd("aunmenu PopUp.-1-")
+vim.cmd("colorscheme siva")
+-- Plugin Specific Options
+vim.g.nvim_tree_respect_buf_cwd = 1

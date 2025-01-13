@@ -1,4 +1,5 @@
 -- Plugins related to UI and status plugins
+
 return {
 	{
 		-- dressing.nvim
@@ -19,10 +20,28 @@ return {
 			vim.cmd("let g:airline#extensions#tmuxline#enabled = 0")
 		end,
 	},
+
+	-- nvim-colorizer | useful for like 3 things I use
+	{
+		"catgoose/nvim-colorizer.lua",
+		event = "BufReadPre",
+		opts = {
+			-- set to setup table
+		},
+		config = function()
+			require("colorizer").setup({
+				filetypes = { "*" },
+				user_default_options = {
+					names = false,
+				},
+			})
+		end,
+	},
+
 	{
 		-- siva.nvim | by yours truly :7
-		"Zbolt50/siva.nvim",
-		--dir = '~/Projects/siva.nvim',
+		--"Zbolt50/siva.nvim",
+		dir = "~/Projects/siva.nvim",
 	},
 	{
 		-- nvim-notify
@@ -35,6 +54,21 @@ return {
 		--tmuxline.vim | makes tmux bar match vim-airline
 		"edkolev/tmuxline.vim",
 		config = function() end,
+	},
+	{
+		--noice.nvim | adds ui changes and other fun things
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+		},
 	},
 	{
 		-- snacks.nvim
@@ -82,7 +116,12 @@ return {
 							desc = "Find File",
 							action = ":lua Snacks.dashboard.pick('files')",
 						},
-						{ icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
+						{
+							icon = " ",
+							key = "n",
+							desc = "New File",
+							action = ":ene | startinsert",
+						},
 						{
 							icon = " ",
 							key = "g",
@@ -95,16 +134,42 @@ return {
 							desc = "Recent Files",
 							action = ":lua Snacks.dashboard.pick('oldfiles')",
 						},
-						{ icon = " ", key = "p", desc = "Open Project", action = ":Telescope project" },
 						{
-							icon = " ",
+							icon = "",
+							key = "O",
+							desc = "Obsidian Notes",
+							action = ":e ~/Documents/Vaults/",
+						},
+						{
+							icon = " ",
+							key = "p",
+							desc = "Open Project",
+							action = ":Telescope projects",
+						},
+						{
+							icon = "",
 							key = "c",
 							desc = "Config",
 							action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
 						},
-						{ icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
-						{ icon = "", key = "m", desc = "Mason", action = ":Mason" },
-						{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+						{
+							icon = "󰒲 ",
+							key = "l",
+							desc = "Lazy",
+							action = ":Lazy",
+						},
+						{
+							icon = "",
+							key = "m",
+							desc = "Mason",
+							action = ":Mason",
+						},
+						{
+							icon = " ",
+							key = "q",
+							desc = "Quit",
+							action = ":qa",
+						},
 					},
 				},
 				sections = {
