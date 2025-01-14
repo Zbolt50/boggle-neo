@@ -39,6 +39,15 @@ return {
 				capabilities = capabilities,
 				on_attach = on_attach,
 			})
+			-- markdown server
+			lspconfig.marksman.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
+			lspconfig.texlab.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+			})
 		end,
 	},
 	{

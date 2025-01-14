@@ -4,25 +4,22 @@ return {
 	{
 		"epwalsh/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit
-		lazy = true,
+		lazy = false,
 		ft = "markdown",
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+
+			-- see below for full list of optional dependencies 👇
+		},
 		config = function()
 			local obsidian = require("obsidian")
 			obsidian.setup({
 				workspaces = {
 					{
-						name = "Personal",
-						path = "~/Documents/Vaults/Personal/",
-						strict = true,
-					},
-					{
 						name = "School",
 						path = "~/Documents/Vaults/School/",
-						strict = true,
-					},
-					{
-						name = "Work",
-						path = "~/Documents/Vaults/Work/",
 						strict = true,
 					},
 				},
@@ -32,6 +29,7 @@ return {
 					-- Trigger completion at 2 chars.
 					min_chars = 2,
 				},
+				new_notes_location = "current_dir",
 				picker = {
 					-- Set your preferred picker. Can be one of 'telescope.nvim', 'fzf-lua', or 'mini.pick'.
 					name = "telescope.nvim",
@@ -50,6 +48,24 @@ return {
 						insert_tag = "<C-l>",
 					},
 				},
+				open_notes_in = "current",
+				templates = {
+					folder = "~/Documents/Vaults/Templates/",
+					date_format = "%Y-%m-%d-%a",
+				},
+				vim.keymap.set(
+					"n",
+					"<leader>oo",
+					":ObsidianOpen<CR>",
+					{ desc = "Opens Current Note in Obsidian", silent = true }
+				),
+				vim.keymap.set("n", "<leader>on", ":ObsidianNew<CR>", { desc = "New Obsidian Note" }),
+				vim.keymap.set(
+					"n",
+					"<leader>ot",
+					":ObsidianNewFromTemplate<CR>",
+					{ desc = "New Obsidian Note From a Template" }
+				),
 			})
 		end,
 	},

@@ -1,4 +1,4 @@
--- Plugins related to UI and status plugins
+-- Plugins related to UI and status pluginsui
 
 return {
 	{
@@ -16,8 +16,10 @@ return {
 			vim.cmd("let g:airline_theme='blood_red'")
 			vim.cmd("let g:airline_left_sep = ''")
 			vim.cmd("let g:airline_right_sep= ''")
-			vim.cmd("let g:airline#extensions#lsp#enabled = 1")
+			vim.cmd("let g:airline#extensions#nvimlsp#enabled = 1")
 			vim.cmd("let g:airline#extensions#tmuxline#enabled = 0")
+			vim.cmd("let g:airline#extensions#branch#enabled = 1")
+			vim.cmd("let g:airline#extensions#branch#enabled = 1")
 		end,
 	},
 
@@ -44,31 +46,9 @@ return {
 		dir = "~/Projects/siva.nvim",
 	},
 	{
-		-- nvim-notify
-		"rcarriga/nvim-notify",
-		config = function()
-			vim.notify = require("notify")
-		end,
-	},
-	{
 		--tmuxline.vim | makes tmux bar match vim-airline
 		"edkolev/tmuxline.vim",
 		config = function() end,
-	},
-	{
-		--noice.nvim | adds ui changes and other fun things
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-		},
 	},
 	{
 		-- snacks.nvim
@@ -154,13 +134,13 @@ return {
 						},
 						{
 							icon = "󰒲 ",
-							key = "l",
+							key = "L",
 							desc = "Lazy",
 							action = ":Lazy",
 						},
 						{
 							icon = "",
-							key = "m",
+							key = "M",
 							desc = "Mason",
 							action = ":Mason",
 						},

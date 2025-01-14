@@ -10,6 +10,7 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"rafamadriz/friendly-snippets",
+		"micangl/cmp-vimtex",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -43,6 +44,12 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "render-markdown" },
+				{ name = "cmp-vimtex" },
+				{ name = "vimtex" },
+				{ name = "obsidian" },
+				{ name = "obsidian_new" },
+				{ name = "obsidian_tags" },
+				{ name = "cmdline" },
 			}),
 		})
 	end,

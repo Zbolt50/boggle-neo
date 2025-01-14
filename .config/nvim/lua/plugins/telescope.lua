@@ -11,6 +11,7 @@ return {
 		local keymap = vim.keymap
 		local telescope = require("telescope")
 		local builtin = require("telescope.builtin")
+		telescope.load_extension("remote-sshfs")
 		telescope.load_extension("projects")
 		telescope.setup({
 			pickers = {
@@ -55,5 +56,6 @@ return {
 		keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Telescope find string in cwd" })
 		keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Telescope find string under cursor in cwd" })
 		keymap.set("n", "<leader>fp", ":Telescope projects<CR>", { desc = "Telescope find project" })
+		keymap.set("n", "<leader>fo", ":ObsidianSearch<CR>", { desc = "Telescope find Obsidian Notes" })
 	end,
 }
