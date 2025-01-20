@@ -6,6 +6,15 @@ return {
 		"stevearc/dressing.nvim",
 	},
 	{
+		"sudormrfbin/cheatsheet.nvim",
+
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/popup.nvim",
+			"nvim-lua/plenary.nvim",
+		},
+	},
+	{
 		-- vim-airline
 		"vim-airline/vim-airline",
 		dependencies = {
@@ -17,7 +26,7 @@ return {
 			vim.cmd("let g:airline_left_sep = ''")
 			vim.cmd("let g:airline_right_sep= ''")
 			vim.cmd("let g:airline#extensions#nvimlsp#enabled = 1")
-			vim.cmd("let g:airline#extensions#tmuxline#enabled = 0")
+			vim.cmd("let g:airline#extensions#tmuxline#enabled = 1")
 			vim.cmd("let g:airline#extensions#branch#enabled = 1")
 			vim.cmd("let g:airline#extensions#branch#enabled = 1")
 		end,
@@ -26,6 +35,7 @@ return {
 	-- nvim-colorizer | useful for like 3 things I use
 	{
 		"catgoose/nvim-colorizer.lua",
+		lazy = true,
 		event = "BufReadPre",
 		opts = {
 			-- set to setup table
@@ -118,7 +128,8 @@ return {
 							icon = "",
 							key = "O",
 							desc = "Obsidian Notes",
-							action = ":e ~/Documents/Vaults/",
+							--action = ":e ~/Documents/Vaults/",
+							action = ":ObsidianSearch",
 						},
 						{
 							icon = " ",
@@ -129,7 +140,7 @@ return {
 						{
 							icon = "",
 							key = "c",
-							desc = "Config",
+							desc = "Neovim Config",
 							action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})",
 						},
 						{

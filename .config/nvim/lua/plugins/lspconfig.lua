@@ -4,52 +4,27 @@ return {
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
-			"hrsh7th/cmp-nvim-lsp",
-			{ "antosha417/nvim-lsp-file-operations", config = true },
+			"saghen/blink.cmp",
 		},
 		config = function()
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
 			local lspconfig = require("lspconfig")
-			local cmp_nvim_lsp = require("cmp_nvim_lsp")
-			local opts = { noremap = true, silent = true }
-			local on_attach = function(client, bufnr)
-				opts.buffer = bufnr
-				opts.desc = "Show LSP refs"
-			end
-			local capabilities = cmp_nvim_lsp.default_capabilities()
-			-- lua server
+			lspconfig["lua_ls"].setup({ capabilities = capabilities })
+			lspconfig["pyright"].setup({ capabilities = capabilities })
+			lspconfig["clangd"].setup({ capabilities = capabilities })
+			lspconfig["bashls"].setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = { -- custom Lua settings
+				settings = {
 					Lua = {
-						-- make the lsp recognize the VIM lsp
 						diagnostics = {
 							globals = { "vim" },
 						},
 					},
 				},
 			})
-			-- C langs server
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			-- pyright server
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			-- markdown server
-			lspconfig.marksman.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
-			lspconfig.texlab.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-			})
 		end,
 	},
+
 	{
 		-- mason.nvim | the numbers mason..
 		"williamboman/mason.nvim",

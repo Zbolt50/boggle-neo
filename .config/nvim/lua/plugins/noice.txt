@@ -8,7 +8,7 @@ return {
 	dependencies = {
 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
 		"MunifTanjim/nui.nvim",
-		"rcarriga/nvim-notify",
+		--"rcarriga/nvim-notify",
 		-- OPTIONAL:
 		--   `nvim-notify` is only needed, if you want to use the notification view.
 		--   If not available, we use `mini` as the fallback
@@ -46,13 +46,26 @@ return {
 					},
 				},
 			},
+			commands = {
+				history = {
+					-- options for the message history that you get with `:Noice`
+					view = "split",
+				},
+				-- :Noice last
+				last = {
+					view = "popup",
+				},
+				-- :Noice errors
+				errors = {
+					-- options for the message history that you get with `:Noice`
+					view = "popup",
+				},
+			},
 			-- nvim-notify settings
-			notify = {
-				routes = {
-					{
-						view = "notify",
-						filter = { event = "msg_showmode" },
-					},
+			routes = {
+				{
+					view = "notify",
+					filter = { event = "msg_showmode" },
 				},
 			},
 			-- keymaps

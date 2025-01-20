@@ -56,6 +56,6 @@ return {
 		keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Telescope find string in cwd" })
 		keymap.set("n", "<leader>fc", builtin.grep_string, { desc = "Telescope find string under cursor in cwd" })
 		keymap.set("n", "<leader>fp", ":Telescope projects<CR>", { desc = "Telescope find project" })
-		keymap.set("n", "<leader>fo", ":ObsidianSearch<CR>", { desc = "Telescope find Obsidian Notes" })
+		keymap.set("n", "<leader>of", ":ObsidianSearch<CR>", { desc = "Telescope find Obsidian Notes" })
 	end,
 }
