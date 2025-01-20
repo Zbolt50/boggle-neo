@@ -38,6 +38,7 @@ vim.opt.splitbelow = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.wrap = false
+vim.g.mapleader = " "
 
 -- Undo Options
 vim.opt.swapfile = false

@@ -5,22 +5,17 @@ vim.g.mapleader = " "
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Quick Exit
-keymap.set("n", "<leader>w", ":w<CR>", { silent = true })
-keymap.set("n", "<leader>a", ":wqa<CR>", { silent = true })
-keymap.set("n", "<leader>q", ":q!<CR>", { silent = true })
-keymap.set("n", "<leader>qa", ":qa!<CR>", { silent = true })
+keymap.set("n", "<leader>w", ":w<CR>", defaults)
+keymap.set("n", "<leader>a", ":wqa<CR>", defaults)
+keymap.set("n", "<leader>q", ":q!<CR>", defaults)
+keymap.set("n", "<leader>qa", ":qa!<CR>", defaults)
 
 -- Copy and Paste
-keymap.set("n", "<leader>ya", "ggyG", { desc = "Yank all lines" })
+keymap.set("n", "<leader>ya", "ggyG")
 
 -- Make items executable without leaving nvim!
 -- keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 
--- Switch Tabs
-for i = 1, 9, 1 do
-	keymap.set("n", "<leader>" .. i, i .. "gt", {})
-end
-keymap.set("n", "<leader>", ":tablast<cr>", {})
 -- Switch Windows
 keymap.set("n", "<C-h>", "<C-w>h")
 keymap.set("n", "<C-j>", "<C-w>j")
