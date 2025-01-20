@@ -78,6 +78,7 @@ plugins=(
     #keychain
     # Make sure this stays as the last plugin \/
     zsh-syntax-highlighting
+    #ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -116,3 +117,6 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+
+# Created by `pipx` on 2025-01-14 00:32:57
+export PATH="$PATH:/home/boggle/.local/bin"
