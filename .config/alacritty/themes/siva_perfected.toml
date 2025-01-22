@@ -1,0 +1,28 @@
+# Inferno theme
+# Source https//github.com/hafiz-muhammad/inferno-alacritty-theme
+
+# Default colors
+[colors.primary]
+background = '#270d06'
+foreground = '#d9d9d9'
+
+[colors.normal]
+black   = '#330000'
+red     = '#ce2029'
+green   = '#a11b23'
+yellow  = '#b51f28'
+blue    = '#9c1a21'
+magenta = '#8e181e'
+cyan    = '#a91e27'
+white   = '#d9d9d9'
+
+# Bright colors
+[colors.bright]
+black   = '#a24857'
+red     = '#e53935'
+green   = '#d32f2f'
+yellow  = '#f44336'
+blue    = '#b71c1c'
+magenta = '#c62828'
+cyan    = '#d32f2f'
+white   = '#ffffff'

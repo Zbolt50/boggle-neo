@@ -4,9 +4,8 @@ decorations = "Buttonless"
 opacity = 0.75
 blur = true
 dynamic_padding = true
-
 [general]
-import = [ "~/.config/alacritty/themes/siva.toml" ]
+import = [ "~/.config/alacritty/themes/siva_perfected.toml" ]
 
 [selection]
 save_to_clipboard = true
