@@ -10,6 +10,7 @@ return {
 					cpp = { "clang-format" },
 					c = { "clang-format" },
 					lua = { "luaformatter", "stylua" },
+					python = { "isort", "black" },
 				},
 				format_on_save = {
 					lsp_fallback = true,
