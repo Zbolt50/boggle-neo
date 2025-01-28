@@ -1,9 +1,13 @@
 -- Plugins related to UI and status pluginsui
-
 return {
 	{
 		-- dressing.nvim
 		"stevearc/dressing.nvim",
+	},
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		opts = {},
 	},
 	{
 		"sudormrfbin/cheatsheet.nvim",
