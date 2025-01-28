@@ -23,6 +23,15 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626
+  --color=hl:#9c1a21,hl+:#cd2029,info:#d32f2f,marker:#a11b23
+  --color=prompt:#ce2029,spinner:#c62828,pointer:#b71c1c,header:#a24857
+  --color=border:#330000,label:#a11b23,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+  --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
+
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -78,7 +87,6 @@ plugins=(
     #keychain
     # Make sure this stays as the last plugin \/
     zsh-syntax-highlighting
-    #ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -94,7 +102,7 @@ zstyle :omz:plugins:keychain options --quiet
  if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
  else
-   export EDITOR='nvim'
+   export EDITOR='nvim' 
  fi
 
 # Compilation flags
@@ -111,6 +119,10 @@ zstyle :omz:plugins:keychain options --quiet
 # Example aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
+alias lg="lazygit"
+alias la="ls -a"
+alias lla="ls -la"
+alias nvi="nvim"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
