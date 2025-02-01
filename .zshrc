@@ -84,9 +84,11 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-interactive-cd
+    fzf-tab
     #keychain
     # Make sure this stays as the last plugin \/
     zsh-syntax-highlighting
+    
 )
 
 source $ZSH/oh-my-zsh.sh

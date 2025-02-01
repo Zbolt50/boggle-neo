@@ -17,4 +17,4 @@ else
 fi
 
 # create symlinks using stow
-stow . --adopt
+stow $HOME/boggle-neo/* --adopt
