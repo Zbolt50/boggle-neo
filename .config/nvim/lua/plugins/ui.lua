@@ -1,6 +1,10 @@
 -- Plugins related to UI and status pluginsui
 return {
 	{
+		-- vimbegood | not to be confused with johnny b goode
+		"ThePrimeagen/vim-be-good",
+	},
+	{
 		-- dressing.nvim
 		"stevearc/dressing.nvim",
 	},

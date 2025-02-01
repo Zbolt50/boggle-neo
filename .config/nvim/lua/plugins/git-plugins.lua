@@ -4,8 +4,8 @@ return {
 		-- vim-fugitive | tpope my goat
 		"tpope/vim-fugitive",
 		config = function()
-			local keymap = vim.keymap
-			keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Show Git status" })
+			-- local keymap = vim.keymap
+			-- keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Show Git status" })
 		end,
 	},
 	{
@@ -62,6 +62,8 @@ return {
 					row = 0,
 					col = 1,
 				},
+				-- Keymaps
+				vim.keymap.set("n", "<leader>gs", ":Gitsigns toggle_signs<CR>", { desc = "Show Git status" }),
 			})
 		end,
 	},
