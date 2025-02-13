@@ -15,7 +15,7 @@ return {
 			api.config.mappings.default_on_attach(bufnr)
 
 			-- API MAPS
-			vim.keymap.set("n", "<C-t>", api.tree.change_root_to_parent, opts("Up"))
+			vim.keymap.set("n", "<C-r>", api.tree.change_root_to_parent, opts("Up"))
 			vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
 			vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Open: Horizontal Split"))
 			vim.keymap.set("n", "g?", api.tree.toggle_help, opts("Help"))
@@ -24,8 +24,8 @@ return {
 			sync_root_with_cwd = true,
 			respect_buf_cwd = true,
 			update_focused_file = {
-				enable = true,
-				update_root = true,
+				enable = false,
+				update_root = false,
 			},
 
 			sort = {
@@ -52,7 +52,8 @@ return {
 				},
 			},
 			filters = {
-				dotfiles = true,
+				dotfiles = false,
+				custom = { "^.git" },
 			},
 			on_attach = on_attach,
 			vim.keymap.set("n", "<leader>n", ":NvimTreeToggle<CR>", { noremap = true, silent = true }),

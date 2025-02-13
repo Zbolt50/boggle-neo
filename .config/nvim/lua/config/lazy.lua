@@ -25,6 +25,7 @@ vim.opt.mouse = "a"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4 -- number of spacesin tab when editing
@@ -67,7 +68,8 @@ require("lazy").setup({
 	-- colorscheme that will be used when installing plugins.
 	install = { colorscheme = { "siva" } },
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	checker = { enabled = true, notify = false },
+	change_detection = { notify = false },
 })
 -- Disable Mouse Popup
 vim.cmd("autocmd VimEnter * silent! aunmenu PopUp.How-to\\ disable\\ mouse")
@@ -75,3 +77,5 @@ vim.cmd("aunmenu PopUp.-1-")
 vim.cmd("colorscheme siva")
 -- Plugin Specific Options
 vim.g.nvim_tree_respect_buf_cwd = 1
+-- vimtex
+vim.g.vimtex_view_method = "zathura"

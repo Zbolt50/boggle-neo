@@ -14,12 +14,23 @@ return {
 		opts = {},
 	},
 	{
-		"sudormrfbin/cheatsheet.nvim",
-
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/popup.nvim",
-			"nvim-lua/plenary.nvim",
+		{
+			"christoomey/vim-tmux-navigator",
+			cmd = {
+				"TmuxNavigateLeft",
+				"TmuxNavigateDown",
+				"TmuxNavigateUp",
+				"TmuxNavigateRight",
+				"TmuxNavigatePrevious",
+				"TmuxNavigatorProcessList",
+			},
+			keys = {
+				{ "<c-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
+				{ "<c-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
+				{ "<c-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
+				{ "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
+				{ "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+			},
 		},
 	},
 	{
@@ -34,7 +45,6 @@ return {
 			vim.cmd("let g:airline_left_sep = ''")
 			vim.cmd("let g:airline_right_sep= ''")
 			vim.cmd("let g:airline#extensions#nvimlsp#enabled = 1")
-			vim.cmd("let g:airline#extensions#tmuxline#enabled = 1")
 			vim.cmd("let g:airline#extensions#branch#enabled = 1")
 			vim.cmd("let g:airline#extensions#branch#enabled = 1")
 		end,
@@ -62,11 +72,6 @@ return {
 		-- siva.nvim | by yours truly :7
 		--"Zbolt50/siva.nvim",
 		dir = "~/Projects/siva.nvim",
-	},
-	{
-		--tmuxline.vim | makes tmux bar match vim-airline
-		"edkolev/tmuxline.vim",
-		config = function() end,
 	},
 	{
 		-- snacks.nvim
