@@ -14,6 +14,7 @@ return {
 			lspconfig["pyright"].setup({ capabilities = capabilities })
 			lspconfig["texlab"].setup({ capabilities = capabilities })
 			lspconfig["marksman"].setup({ capabilities = capabilities })
+			lspconfig["r_language_server"].setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {

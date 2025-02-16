@@ -58,6 +58,12 @@
 	"type": "disk",
 	"keyColor": "red"
     },
+    
+    {
+      "type": "memory",
+      "keyColor": "red"
+    },
+
     {
       "type": "battery",
       "keyColor": "red"

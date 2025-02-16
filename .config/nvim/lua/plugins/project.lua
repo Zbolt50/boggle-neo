@@ -8,13 +8,13 @@ return {
 			{
 				-- Manual mode doesn't automatically change your root directory, so you have
 				-- the option to manually do so using `:ProjectRoot` command.
-				manual_mode = false,
+				manual_mode = true,
 
 				-- Methods of detecting the root directory. **"lsp"** uses the native neovim
 				-- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
 				-- order matters: if one is not detected, the other is used as fallback. You
 				-- can also delete or rearangne the detection methods.
-				detection_methods = { "lsp", "pattern" },
+				detection_methods = { "pattern", "lsp" },
 
 				-- All the patterns used to detect root dir, when **"pattern"** is in
 				-- detection_methods
@@ -26,7 +26,7 @@ return {
 
 				-- Don't calculate root dir on specific directories
 				-- Ex: { "~/.cargo/*", ... }
-				exclude_dirs = { "~/qmk_firmware", "~/boggle-neo", "/home/boggle/" },
+				exclude_dirs = { "$HOME/qmk_firmware/*", "~/boggle-neo", "/home/boggle/*" },
 
 				-- Show hidden files in telescope
 				show_hidden = true,
@@ -39,12 +39,12 @@ return {
 				-- * global (default)
 				-- * tab
 				-- * win
-				scope_chdir = "win",
+				scope_chdir = "tab",
 
 				-- Path where project.nvim will store the project history for use in
 				-- telescope
 				datapath = vim.fn.stdpath("data"),
-				vim.keymap.set("n", "<leader>cr", ":ProjectRoot", { desc = "Change root to project directory" }),
+				vim.keymap.set("n", "<leader>cr", ":ProjectRoot<CR>", { desc = "Change root to project directory" }),
 			},
 		})
 	end,

@@ -25,7 +25,7 @@ vim.opt.mouse = "a"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = " "
-vim.g.maplocalleader = ","
+-- vim.g.maplocalleader = ","
 
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4 -- number of spacesin tab when editing
