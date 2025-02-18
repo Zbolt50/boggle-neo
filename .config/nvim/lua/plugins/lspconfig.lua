@@ -3,24 +3,30 @@ return {
 		-- nvim-lspconfig | rip null-ls
 		"neovim/nvim-lspconfig",
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = { "saghen/blink.cmp" },
-		config = function()
-			local capabilities = require("blink.cmp").get_lsp_capabilities()
-			local lspconfig = require("lspconfig")
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+		},
 
-			lspconfig["lua_ls"].setup({ capabilities = capabilities })
-			lspconfig["bashls"].setup({ capabilities = capabilities })
-			lspconfig["clangd"].setup({ capabilities = capabilities })
-			lspconfig["pyright"].setup({ capabilities = capabilities })
-			lspconfig["texlab"].setup({ capabilities = capabilities })
-			lspconfig["marksman"].setup({ capabilities = capabilities })
-			lspconfig["r_language_server"].setup({ capabilities = capabilities })
-			lspconfig.lua_ls.setup({
+		config = function()
+			local lspconfig = require("lspconfig")
+			local cmp_nvim_lsp = require("cmp_nvim_lsp")
+			local capabilities = cmp_nvim_lsp.default_capabilities()
+
+			lspconfig["lua_ls"].setup({
+				capabilities = capabilities,
 				settings = {
 					Lua = {
-						diagnostics = { globals = { "vim" } },
+						diagnostics = {
+							globals = { "vim" },
+						},
 					},
 				},
+			})
+			lspconfig["clangd"].setup({
+				capabilities = capabilities,
+			})
+			lspconfig["pyright"].setup({
+				capabilities = capabilities,
 			})
 		end,
 	},
@@ -49,8 +55,6 @@ return {
 					"pyright",
 					"bashls",
 					"clangd",
-					"marksman",
-					"texlab",
 				},
 				automatic_installation = true,
 			})

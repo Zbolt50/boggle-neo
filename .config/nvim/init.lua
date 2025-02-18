@@ -5,5 +5,4 @@ local function update_hl(group, tbl)
 	local new_hl = vim.tbl_extend("force", old_hl, tbl)
 	vim.api.nvim_set_hl(0, group, new_hl)
 end
-
 update_hl("Comment", { italic = true })

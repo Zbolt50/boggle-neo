@@ -1,5 +1,6 @@
 return {
 	-- plugins for R
+	-- If that damn lsp server would work that'd be real cool
 	{
 		"R-nvim/R.nvim",
 		-- Only required if you also set defaults.lazy = true
@@ -15,9 +16,5 @@ return {
 		config = function()
 			require("cmp_r").setup({})
 		end,
-	},
-	{
-
-		"gaalcaras/ncm-R",
 	},
 }

@@ -1,5 +1,6 @@
 return {
 	"akinsho/nvim-toggleterm.lua",
+	lazy = true,
 	config = function()
 		local toggleterm = require("toggleterm")
 		vim.keymap.set({ "n", "t" }, "<leader>tt", ":ToggleTerm<CR>", { desc = "Horizontal ToggleTerm" })
