@@ -21,12 +21,13 @@ return {
 			vim.keymap.set("n", "g?", api.tree.toggle_help, opts("Help"))
 		end
 		require("nvim-tree").setup({
-			auto_reload_on_write = true,
+			sync_root_with_cwd = true,
+			respect_buf_cwd = true,
+			update_cwd = true,
 			update_focused_file = {
 				enable = true,
 				update_root = true,
 			},
-
 			sort = {
 				sorter = "case_sensitive",
 				folders_first = true,
@@ -49,10 +50,6 @@ return {
 						},
 					},
 				},
-			},
-			hijack_directories = {
-				enable = false,
-				auto_open = false,
 			},
 			filters = {
 				dotfiles = false,

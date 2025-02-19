@@ -14,37 +14,37 @@ return {
 				-- lsp, while **"pattern"** uses vim-rooter like glob pattern matching. Here
 				-- order matters: if one is not detected, the other is used as fallback. You
 				-- can also delete or rearangne the detection methods.
-				detection_methods = { "pattern", "lsp" },
+				detection_methods = { "pattern" },
 
 				-- All the patterns used to detect root dir, when **"pattern"** is in
 				-- detection_methods
-				patterns = { ".git" },
+				patterns = { ".git", "qmk_firmware/keyboards/*/.git" },
 
 				-- Table of lsp clients to ignore by name
 				-- eg: { "efm", ... }
-				ignore_lsp = {},
+				ignore_lsp = { "clangd" },
 
 				-- Don't calculate root dir on specific directories
 				-- Ex: { "~/.cargo/*", ... }
-				exclude_dirs = { "$HOME/qmk_firmware/*", "~/boggle-neo", "/home/boggle/*" },
+				exclude_dirs = { "~/qmk_firmware", "~/boggle-neo", "~/boggle", "~/" },
 
-				-- Show hidden files in telescope
 				show_hidden = true,
 
-				-- When set to false, you will get a message when project.nvim changes your
-				-- directory.
-				silent_chdir = true,
+				silent_chdir = false,
 
 				-- What scope to change the directory, valid options are
 				-- * global (default)
 				-- * tab
 				-- * win
-				scope_chdir = "tab",
+				scope_chdir = "global",
 
 				-- Path where project.nvim will store the project history for use in
 				-- telescope
 				datapath = vim.fn.stdpath("data"),
 				vim.keymap.set("n", "<leader>cr", ":ProjectRoot<CR>", { desc = "Change root to project directory" }),
+				vim.keymap.set("n", "<leader>cd", function()
+					vim.cmd("cd " .. vim.fn.expand("%:p:h"))
+				end, { desc = "Change to the directory of the current buffer" }),
 			},
 		})
 	end,

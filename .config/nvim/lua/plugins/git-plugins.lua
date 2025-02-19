@@ -1,14 +1,6 @@
 return {
 	-- Git related plugins
 	{
-		-- vim-fugitive | tpope my goat
-		"tpope/vim-fugitive",
-		config = function()
-			-- local keymap = vim.keymap
-			-- keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "Show Git status" })
-		end,
-	},
-	{
 		-- gitsigns | This takes up way more room than it should
 		"lewis6991/gitsigns.nvim",
 		config = function()
