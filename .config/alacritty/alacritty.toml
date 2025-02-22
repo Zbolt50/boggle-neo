@@ -11,7 +11,7 @@ import = [ "~/.config/alacritty/themes/siva_perfected.toml" ]
 save_to_clipboard = true
 
 [font.normal]
-family = "JetBrains Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.bold]

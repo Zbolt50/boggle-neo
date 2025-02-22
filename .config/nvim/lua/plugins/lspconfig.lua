@@ -28,6 +28,9 @@ return {
 			lspconfig["pyright"].setup({
 				capabilities = capabilities,
 			})
+			lspconfig["texlab"].setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 

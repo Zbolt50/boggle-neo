@@ -8,7 +8,7 @@
           "headset": "",
           "default": ["", " "]
         },
-        "on-click": "pwvucontrol"
+        "on-click": "pavucontrol"
     },
     "tray":{
         "icon-size": 18,
