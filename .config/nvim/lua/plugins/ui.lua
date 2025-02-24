@@ -118,6 +118,7 @@ return {
 							desc = "Recent Files",
 							action = ":lua Snacks.dashboard.pick('oldfiles')",
 						},
+						--[[
 						{
 							icon = "",
 							key = "O",
@@ -125,12 +126,15 @@ return {
 							--action = ":e ~/Documents/Vaults/",
 							action = ":ObsidianSearch",
 						},
+                        --]]
+						--[[
 						{
 							icon = " ",
 							key = "p",
 							desc = "Open Project",
 							action = ":Telescope projects",
 						},
+                        --]]
 						{
 							icon = "",
 							key = "c",
